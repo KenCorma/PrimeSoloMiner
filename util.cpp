@@ -77,7 +77,9 @@ static int mpz2bignum(mpz_t g, BIGNUM *bn)
 	}
 	else
 	{
-		int toret;
+		
+		int toret = 0;
+		/*
 		char *tmpchar = OPENSSL_malloc(mpz_sizeinbase(g, 16) + 10);
 		
 		if(!tmpchar) return 0;
@@ -85,7 +87,7 @@ static int mpz2bignum(mpz_t g, BIGNUM *bn)
 		
 		toret = BN_hex2bn(&bn, tmpchar);
 		OPENSSL_free(tmpchar);
-		
+		*/
 		return toret;
 	}
 }

@@ -303,6 +303,7 @@ namespace Core
 				{
 					HEIGHT_TIMER.Reset();
 					CLIENT->GetHeight();
+					CLIENT->GetBlock();
 				}
 				
 				
@@ -443,6 +444,9 @@ int main(int argc, char *argv[])
 		
 	std::string IP = argv[1];
 	std::string PORT = argv[2];
+
+	//Since this is CPU bound, unbuffer the output so it can be captured better.
+	setvbuf(stdout, NULL, _IONBF, 0); 
 	
 	int nThreads = GetTotalCores(), nTimeout = 10;
 	
@@ -452,7 +456,7 @@ int main(int argc, char *argv[])
 	if(argc > 4)
 		nTimeout = boost::lexical_cast<int>(argv[4]);
 	
-	printf("Coinshield Prime Solo Miner 1.0.0 - Created by Videlicet - Optimized by Supercomputing\n");
+	printf("Coinshield Prime Solo Miner 1.0.1 \n- Created by Videlicet \n- Optimized by Supercomputing \n-Modified by Kencorma \n");
 	printf("The Meter Has 2 Values:\nPPS = Primes Per Second\nCPS = Clusters Per Second [Of larger than 3.x Difficulty]\n\n");
 	Sleep(2000);
 	
